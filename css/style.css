@@ -366,7 +366,7 @@ a:hover {
 .projects {
   position: relative;
   width: 100%;
-  min-height: 100vh; /* or height: 100vh if needed */
+  min-height: 100vh;
   overflow: hidden;
 }
 
@@ -474,50 +474,114 @@ a:hover {
 
 /* Timeline Section */
 
+ .timeline-line {
+    position: absolute;
+    top: 70px;      
+    bottom: 90px;
+    left: 50%;
+    width: 4px;
+    background-color: black;
+    transform: translateX(-50%);
+    z-index: 0;
+  }
+
+  /* Glow effect that grows top->bottom */
+  .line-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background-color: #c80025;
+    box-shadow:
+      0 0 12px #c80025,
+      0 0 20px #c80025,
+      0 0 30px #c80025;
+    transition: height 0.1s linear;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+.timeline-line::before,
+.timeline-line::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  z-index: 2;
+  background-color: black;
+  transition: all 0.3s ease;
+}
+
+/* Top circle – always black */
+.timeline-line::before {
+  top: 0;
+}
+
+/* Bottom circle – starts black, will glow via JS */
+.timeline-line::after {
+  bottom: 0;
+}
+
+/* When top glow is active */
+.timeline-line.glow-start::before {
+  background-color: #c80025;
+  box-shadow: 0 0 10px #c80025, 0 0 20px #c80025;
+}
+
+/* When bottom glow is active */
+.timeline-line.glow-end::after {
+  background-color: #c80025;
+  box-shadow: 0 0 10px #c80025, 0 0 20px #c80025;
+}
 
 
 
-     @keyframes appear {
-        from{
-            opacity: 0;
-            scale: 0.5;
-        }
-        to{
-            opacity: 1;
-            scale: 1;
-        }
-    }
 
-    .timeline-block{
-        animation: appear linear ;
-        animation-timeline: view();
-        animation-range: entry 0% cover 40%;
-    }
-
-
-    .timeline-container {
-      position: relative;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-      .timeline-block {
-         position: relative;
-        width: 50%;
-        padding: 1rem 2rem;
-        box-sizing: border-box;
+      @keyframes appear {
+          from{
+              opacity: 0;
+              scale: 0.5;
+          }
+          to{
+              opacity: 1;
+              scale: 1;
+          }
       }
 
-    .journey-card {
-      background-color: #111;
-      padding: 1.5rem;
-      border-radius: 1rem;
-      border: 1px solid #1DCD9F;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      opacity: 1;
-      transform: translateY(0);
-      transition: all 0.5s ease-in-out;
-    }
+      .timeline-block{
+          animation: appear linear ;
+          animation-timeline: view();
+          animation-range: entry 0% cover 40%;
+      }
+
+
+      .timeline-container {
+        position: relative;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+        .timeline-block {
+          position: relative;
+          width: 50%;
+          padding: 1rem 2rem;
+          box-sizing: border-box;
+        }
+
+      .journey-card {
+        background-color: #111;
+        padding: 1.5rem;
+        border-radius: 1rem;
+        border: 1px solid #1DCD9F;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.5s ease-in-out;
+      }
 
     .card-title {
       font-size: 1.25rem;

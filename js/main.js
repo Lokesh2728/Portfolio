@@ -1,3 +1,17 @@
+// animation eha i am 
+var typed = new Typed('#element', {
+      strings: [' Python Full Stack Developer', ' Data Analyst'],
+      typeSpeed: 50,
+      smartBackspace: true,
+      backSpeed: 50,
+      loop: true,
+    });
+
+
+
+
+
+
 // Smooth Scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener("click", function (e) {
@@ -35,48 +49,50 @@ document.querySelectorAll(".skill-item").forEach(pebble => {
 
 
 // Time Line animations
- 
- var typed = new Typed('#element', {
-      strings: [' Python Full Stack Developer', ' Data Analyst'],
-      typeSpeed: 50,
-      smartBackspace: true,
-      backSpeed: 50,
-      loop: true,
-    });
 
-    const items = document.querySelectorAll(".timeline-item");
+const section = document.getElementById("timeline-section");
+const glow = document.getElementById("lineGlow");
+const line = document.querySelector(".timeline-line");
 
-      const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-        observer.unobserve(entry.target); // Optional: remove once shown
-      }
-    });
-  }, {
-    threshold: 0.2
-  });
+window.addEventListener("scroll", () => {
+  const sectionTop = section.offsetTop;
+  const sectionHeight = section.offsetHeight;
+  const sectionBottom = sectionTop + sectionHeight;
 
-  items.forEach(item => {
-    observer.observe(item);
-  });
+  const viewportCenter = window.scrollY + window.innerHeight / 2;
+
+  if (viewportCenter >= sectionTop && viewportCenter <= sectionBottom) {
+    const progress = (viewportCenter - sectionTop) / sectionHeight;
+    const heightPercent = Math.min(100, Math.max(0, progress * 100));
+    glow.style.height = `${heightPercent}%`;
+
+    // Add glow-start when glow has started
+    if (heightPercent > 0) {
+      line.classList.add("glow-start");
+    } else {
+      line.classList.remove("glow-start");
+    }
+
+    // Add glow-end when glow reaches end
+    if (heightPercent >= 99.5) {
+      line.classList.add("glow-end");
+    } else {
+      line.classList.remove("glow-end");
+    }
+
+  } else if (viewportCenter < sectionTop) {
+    glow.style.height = "0%";
+    line.classList.remove("glow-start", "glow-end");
+  } else if (viewportCenter > sectionBottom) {
+    glow.style.height = "100%";
+    line.classList.add("glow-start", "glow-end");
+  }
+});
+
+// Trigger scroll logic on page load
+window.dispatchEvent(new Event("scroll"));
 
 
-   document.addEventListener("DOMContentLoaded", () => {
-    const timelineSection = document.querySelector("#timeline");
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          timelineSection.classList.add("animate-line");
-        }
-      });
-    }, {
-      threshold: 0.3
-    });
-
-    observer.observe(timelineSection);
-  });
 
 
   // Email-send-recive
