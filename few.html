@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background-color: #333;
+    }
+.timeline-container {
+  position: relative;
+  max-width: 850px;
+  margin: 80px auto;
+  padding: 0 20px 60px;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 100%;
+  background: var(--primary, #007bff);
+  border-radius: 10px;
+  z-index: 1;
+  overflow: hidden;
+}
+.timeline-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: #c80025; /* Highlight color */
+  transition: height 3s ease-in-out;
+  z-index: 2;
+  box-shadow: #c80025;
+}
+
+.timeline-container.animate-line .timeline-line::after {
+  height: 100%;
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 25px 45px;
+  box-sizing: border-box;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 4s ease;
+}
+
+.timeline-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+
+.timeline-content {
+  background: white;
+  padding: 30px 30px 35px;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.07);
+  position: relative;
+  font-size: 1rem;
+}
+
+.timeline-item:nth-child(odd) .timeline-content::after {
+  content: '';
+  position: absolute;
+  top: 30px;
+  right: -15px;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid white;
+}
+
+.timeline-item:nth-child(even) .timeline-content::after {
+  content: '';
+  position: absolute;
+  top: 30px;
+  left: -15px;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 15px solid white;
+}
+
+.timeline-date {
+  font-weight: 700;
+  color: var(--primary, #007bff);
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.timeline-content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: var(--dark, #333);
+  font-weight: 700;
+}
+
+.timeline-content p {
+  color: var(--gray, #666);
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .timeline-item,
+  .timeline-item:nth-child(even),
+  .timeline-item:nth-child(odd) {
+    width: 100%;
+    left: 0;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .timeline-line {
+    left: 10px;
+  }
+
+  .timeline-content::after {
+    display: none;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <section id="timeline" class="timeline-container">
+    
+    <div class="max-w-6xl mx-auto text-center mb-12" >
+      <h2 class="text-4xl font-bold mb-4" >My Journey</h2>
+    </div>
+
+    <div class="timeline-line"></div>
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <div class="timeline-date">2024</div>
+        <h3>Completed Python Full Stack Training</h3>
+        <p>PySpiders, Bangalore</p>
+      </div>
+    </div>
+
+
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <div class="timeline-date">2020 - 2024</div>
+        <h3> B.Tech CSE(AI & ML) </h3>
+        <p>Shri Shankaracharya Technical Campus with 76% aggregate.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <div class="timeline-date">2019 - 2020 </div>
+        <h3> Senior  Secondary  (12th)</h3>
+        <p>Nirmala English Medium Higher Secondary School Korba</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <div class="timeline-date">2017-2018</div>
+        <h3> Higher Secondary (10th) </h3>
+        <p>Nirmala English Medium Higher Secondary School Korba</p>
+      </div>
+    </div>
+  </section>
+<script>
+  
+</script>
+
+</body>
+</html>

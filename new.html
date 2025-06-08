@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Timeline with Glow Line</title>
+  <style>
+    body {
+      background: #121212;
+      color: #ddd;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .timeline-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+  z-index: 1;
+}
+
+/* Vertical timeline line */
+.timeline-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 100%;
+  background: var(--primary, #007bff);
+  border-radius: 10px;
+  z-index: 1;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Highlight overlay animating height */
+.timeline-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: #c80025; /* Highlight color */
+  transition: height 3s ease-in-out;
+  z-index: 2;
+  box-shadow: none;
+}
+
+/* On scroll (glow + expand highlight) */
+.timeline-container.animate-line .timeline-line {
+  background-color: #1DCD9F;
+  box-shadow: 0 0 10px 3px #1DCD9F;
+}
+
+.timeline-container.animate-line .timeline-line::after {
+  height: 100%;
+  box-shadow: 0 0 15px 5px #c80025;
+}
+
+    .max-w-6xl {
+      max-width: 72rem;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+
+    .max-w-6xl h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #1DCD9F;
+      margin-bottom: 1rem;
+    }
+
+    .timeline-block {
+      position: relative;
+      width: 50%;
+      padding: 1rem 2rem;
+      box-sizing: border-box;
+    }
+
+    /* Odd timeline blocks on left */
+    .timeline-block:nth-child(odd) {
+      left: 0;
+      float: left;
+      clear: both;
+      text-align: right;
+    }
+
+    /* Even timeline blocks on right */
+    .timeline-block:nth-child(even) {
+      left: 50%;
+      float: right;
+      clear: both;
+      text-align: left;
+    }
+
+    .timeline-content {
+      background: #111;
+      padding: 1.5rem 2rem;
+      border-radius: 15px;
+      border: 1px solid #1DCD9F;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      position: relative;
+      font-size: 1rem;
+      display: inline-block;
+      max-width: 350px;
+      color: #ddd;
+    }
+
+    /* Arrow for left timeline */
+    .timeline-block:nth-child(odd) .timeline-content::after {
+      content: '';
+      position: absolute;
+      top: 30px;
+      right: -15px;
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-left: 15px solid #111;
+    }
+
+    /* Arrow for right timeline */
+    .timeline-block:nth-child(even) .timeline-content::after {
+      content: '';
+      position: absolute;
+      top: 30px;
+      left: -15px;
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-right: 15px solid #111;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1DCD9F;
+      margin: 0 0 0.5rem;
+    }
+
+    .card-date {
+      font-size: 0.875rem;
+      color: #9CA3AF;
+    }
+
+    .card-desc {
+      margin-top: 0.5rem;
+      color: #D1D5DB;
+    }
+
+    /* Clearfix */
+    .timeline-container::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="timeline-container" id="timeline">
+    <div class="max-w-6xl">
+      <h2>My Journey</h2>
+    </div>
+
+    <div class="timeline-block">
+      <div class="timeline-content">
+        <h3 class="card-title">Internship at @ProdigyInfoTech</h3>
+        <span class="card-date">June 2024 - Aug 2024</span>
+        <p class="card-desc">Worked on UI/UX design, responsive components, and integrated APIs using React and Tailwind CSS.</p>
+      </div>
+    </div>
+
+    <div class="timeline-block">
+      <div class="timeline-content">
+        <h3 class="card-title">B.Tech – Computer Science (CSBS)</h3>
+        <span class="card-date">Medi-Caps University, Indore (2022 - 2026)</span>
+        <p class="card-desc">Focused on full-stack development, AI projects, and cloud computing technologies.</p>
+      </div>
+    </div>
+
+    <div class="timeline-block">
+      <div class="timeline-content">
+        <h3 class="card-title">High School – PCM</h3>
+        <span class="card-date">Shree Madhav Vidhya Peeth School, Indore (2020)</span>
+        <p class="card-desc">Built an early interest in coding, building basic games and websites in school projects.</p>
+      </div>
+    </div>
+
+    <div class="timeline-block">
+      <div class="timeline-content">
+        <h3 class="card-title">Freelance Projects</h3>
+        <span class="card-date">2023 - Present</span>
+        <p class="card-desc">Developed responsive websites and small apps for clients using modern technologies.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const timelineContainer = document.querySelector(".timeline-container");
+
+  if (!timelineContainer) return;
+
+  // Track last scroll position inside the container
+  let lastScrollTop = 0;
+
+  timelineContainer.addEventListener("scroll", () => {
+    const scrollTop = timelineContainer.scrollTop;
+
+    // Add animate-line when scrolling down beyond 10px inside container
+    if (scrollTop > 10) {
+      timelineContainer.classList.add("animate-line");
+    } else {
+      timelineContainer.classList.remove("animate-line");
+    }
+
+    lastScrollTop = scrollTop;
+  });
+});
+
+  </script>
+
+</body>
+</html>
