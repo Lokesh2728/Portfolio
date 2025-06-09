@@ -112,3 +112,25 @@ window.dispatchEvent(new Event("scroll"));
             });
         }
 
+
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('glow');
+        } else {
+          entry.target.classList.remove('glow');
+        }
+      });
+    },
+    {
+      threshold: 0.8
+    }
+  );
+
+  // Select and observe all skill-category blocks
+  document.querySelectorAll('.skill-category').forEach(el => {
+    observer.observe(el);
+  });
+
