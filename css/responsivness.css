@@ -1,6 +1,7 @@
 /* === MEDIA QUERIES FOR RESPONSIVENESS === */
 
-@media screen and  (max-aspect-ratio: 20/9) {
+/* Small devices (phones) */
+@media screen and  (max-width: 800px) {
   .hero {
     flex-direction: column;
     text-align: center;
