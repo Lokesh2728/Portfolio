@@ -1,11 +1,22 @@
-// animation eha i am 
+// animation who  i am 
 var typed = new Typed('#element', {
-      strings: [' Python Full Stack Developer', ' Data Analyst'],
+      strings: [' Web Developer',' Python Developer', ' Data Analyst','database administrator ',' Software Engineer'],
       typeSpeed: 50,
       smartBackspace: true,
       backSpeed: 50,
       loop: true,
     });
+
+/*var greeting = new Typed("#greet", {
+    strings: ["Hello", "नमस्ते","Hola","নমস্কার","Bonjour","નમસ્તે", "Ciao"]
+,
+
+    typeSpeed: 20,
+    backSpeed: 25,
+    backDelay: 1200,
+    loop: true,
+    showCursor: false,
+  });*/
 
 
 
@@ -93,26 +104,7 @@ window.addEventListener("scroll", () => {
 window.dispatchEvent(new Event("scroll"));
 
 
-
-
-  // Email-send-recive
-
-   function sendEmail() {
-            Email.send({
-                Host: "smtp.gmail.com",
-                Username: "username",
-                Password: "password",
-                To: 'recipient@example.com',
-                From: "sender@example.com",
-                Subject: "Test Email",
-                Body: "This is a test email sent using SMTP.js"
-            })
-            .then(function (message) {
-                alert("Mail sent successfully") // Alert message on successful email delivery
-            });
-        }
-
-
+// skill section glow on mobile view
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -134,3 +126,24 @@ window.dispatchEvent(new Event("scroll"));
     observer.observe(el);
   });
 
+
+  // Email-send-recive
+
+ function sendmail() {
+  event.preventDefault(); // Prevent form from reloading page
+
+  let Params = {
+    name: document.getElementById("name").value,
+    mail: document.getElementById("e-mail").value,
+    message: document.getElementById("message").value,
+  };
+
+  emailjs.send('service_y50s5vp', 'template_5s394rj', Params)
+    .then(
+      alert("Email has been sent!"))
+    .catch(function(error) {
+      console.error("Email sending failed: ", error);
+      alert("Something went wrong. Please try again.");
+    });
+     document.querySelector(".contact-form").reset();
+}

@@ -5,10 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lokesh Patel | Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/aboutme.css">
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsivness.css  ">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
 </head>
 <body>
 
@@ -44,7 +48,7 @@
   <!-- HERO SECTION -->
   <section class="hero" id="hero">
     <div class="hero-content">
-      <h1>Hello, I'm Lokesh Patel</h1>
+        <h1><span id="greet"></span>Hello , I'm Lokesh <br> Patel</h1>
       <h2>
         I am a <span id="element"></span>
       </h2> 
@@ -59,27 +63,47 @@
   </section>
 
   <!-- ABOUT SECTION -->
-  <div class="about-wrapper"></div>
-  <section id="about" class="about-content">
-    <div class="about-image">
-      <img src="about-photo.jpg" alt="About Me" />
-    </div>
-    <div class="about-text">
-      <h3>About Me</h3>
-      <p>
-        I am a 2024 CS graduate and an enthusiastic full-stack developer trained in Python, Django, REST APIs, and data analytics. I specialize in building scalable applications and creating visual, data-driven dashboards. Passionate about problem-solving, cloud deployment, and creating clean code.
-      </p>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/lokesh27patel" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></i></a>
-        <a href="https://github.com/Lokesh2728" aria-label="GitHub"><i class="bi bi-github"></i></a>
-        <a href="#" aria-label="Insatgram"><i class="bi bi-instagram"></i></i></a>
-        <a href="https://drive.google.com/file/d/1U0zK4iA6MTTc81Nt3kDHilaOfb4QtWH0/view?usp=sharing" class="cv">
-          <i class="bi bi-file-earmark-pdf"></i>
-        </a>
+
+  
+<section id="about" class="about-content">
+
+  <!-- Flip Card -->
+  <div class="card-container">
+
+    <div class="about-card">
+      <div class="card-front">
+        <h2>About Me</h2>
+      </div>
+      <div class="card-back">
+        <img src="images/hero.jpg" alt="Profile image" />
       </div>
     </div>
-  </section>
-</div>
+  </div>
+
+  <!-- Text Section -->
+  <div class="about-text">
+    <h3>Who AM I </h3>
+    <p>
+      I’m Lokesh Patel — a  CS grad turned full-stack developer with a love for clean code, spicy food,
+       and football goals. Trained in Python, Django, and REST APIs, I build smart, scalable apps and data-driven dashboards. <br>
+      When I’m not debugging apps, I’m cooking, reading, or sliding tackles on the football field. Cloud deployments excite 
+      me almost as much as late-night biryani. Let’s just say — I push code and kick balls with equal passion. 😎
+    </p>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/lokesh27patel" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/Lokesh2728" aria-label="GitHub"><i class="bi bi-github"></i></a>
+      <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      <a href="https://drive.google.com/file/d/1U0zK4iA6MTTc81Nt3kDHilaOfb4QtWH0/view?usp=sharing" class="cv" aria-label="Resume">
+        <i class="bi bi-file-earmark-pdf"></i>
+      </a>
+    </div>
+  </div>
+
+</section>
+ 
+
+
+
   <!-- SKILLS SECTION -->
   <section id="skills" class="skills-container">
     <div class="skill-category">
@@ -125,8 +149,8 @@
 
   <section id="projects" class="projects">
     <div id="particles-js"></div>
-    <div class="max-w-6xl mx-auto text-center mb-12" >
-      <h2 class="text-4xl font-bold mb-4" >Projects</h2>
+    <div class=" mx-auto text-center mb-12" >
+      <h2 class="p-title" >Projects</h2>
       <p class="text-gray-300 text-lg">Some of the things I've built.</p>
     </div>
     
@@ -139,7 +163,9 @@
         <div class="card-body">
           <h5 class="P-card-title">Expense Tracker</h5>
           <p class="card-text"> Developed a full-stack Django web app supporting budgets, visualized expense dashboards using 
-            Matplotlib, with robust CRUD and user authentication.</p>
+            Matplotlib, with robust CRUD and user authentication.
+          <br><h6>Currently on development (Halfway)</h6>
+        </p>
           <div class="project-tech">
            <span>Python</span>
             <span>Django</span>
@@ -177,7 +203,7 @@
              <!-- Card 3 -->
 
       <div class="card ">
-        <img src="images/tracker.png" class="card-img-top" alt="Project 1">
+        <img src="images/Screenshot 2025-06-10 025750.png" class="card-img-top" alt="Project 1">
         <div class="card-body">
           <h5 class="P-card-title">SmartTask — Your Minimalist Productivity Partner</h5>
           <p class="card-text">
@@ -191,7 +217,7 @@
             <span>SQLite3</span>
           </div>
           <div class="project-links mt-2 ">
-            <a href="#" target="_blank" rel="noopener">Code</a>
+            <a href="https://github.com/Lokesh2728/TODO.git" target="_blank" rel="noopener">Code</a>
           </div>
         </div>
       </div>
@@ -200,12 +226,13 @@
              <!-- Card 4 -->
 
       <div class="card ">
-        <img src="images/tracker.png" class="card-img-top" alt="Project 1">
+        <img src="images/20623.jpg" class="card-img-top" alt="Project 1">
         <div class="card-body">
           <h5 class="P-card-title">Weather Forecast</h5>
           <p class="card-text">
-            SmartTask is a clean, responsive to-do list web app built with Python & Django, designed to help users 
-            stay organized with ease. It goes beyond just listing tasks — it lets you categorize, prioritize, and mark them as complete with a satisfying tap.
+            Built a sleek REST API using Django and DRF to fetch real-time weather info by city name. 
+            The endpoint /api/weather/?city=Delhi returns current temperature, humidity, and conditions using live 
+            data from OpenWeatherMap. Ideal for dashboards, travel apps, or smart UIs. Clean JSON, clean code. 🌤️  
           </p>
           <div class="project-tech">
             <span>HTML5</span>
@@ -214,7 +241,7 @@
             <span>Rest-Framework</span>
           </div>
           <div class="project-links mt-2 ">
-            <a href="#" target="_blank" rel="noopener">Code</a>
+            <a href="https://github.com/Lokesh2728/Weather_api.git" target="_blank" rel="noopener">Code</a>
           </div>
         </div>
       </div>
@@ -227,8 +254,8 @@
    
   <section id="timeline-section" >
       
-     <div class="max-w-6xl mx-auto text-center mb-12" >
-      <h2 class="text-4xl font-bold mb-4" >Education </h2>
+     <div class=" mx-auto text-center mb-12" >
+      <h2 class="edu" >Education Journey </h2>
     </div>
 
     <div class="timeline-container">
@@ -252,6 +279,7 @@
         <div class="timeline-content">
           <div class="journey-card">
             <h3 class="card-title">Graduated with a B.Tech in Computer Science(AI & ML)</h3>
+            <h5> Shri Shankarachraya Technical Campus </h5>
             <span class="card-date">Sept 2020 - Jun 2024</span>
             <p class="card-desc">Earned my B.Tech in Computer Science. Projects, problem-solving, and the start of something big.</p>
           </div>
@@ -262,6 +290,7 @@
         <div class="timeline-content">
           <div class="journey-card">
             <h3 class="card-title">Higher Secondary Education</h3>
+            <h5> Nirmala Eng Med Hr Sec School</h5>
             <span class="card-date">Apr 2019 - Jun 2020 </span>
             <p class="card-desc">Completed HSC with a focus on Physics, Chemistry, and Mathematics.
                Built analytical thinking and a solid base for engineering education.</p>
@@ -273,6 +302,7 @@
         <div class="timeline-content">
           <div class="journey-card">
             <h3 class="card-title">Secondary Education</h3>
+            <h5> Nirmala Eng Med Hr Sec School</h5>
             <span class="card-date">Apr 2017 - Jun 2018 </span>
             <p class="card-desc">Completed 10th  with distinction. Developed strong fundamentals in 
               mathematics and science, laying the groundwork for future learning.</p>
@@ -301,18 +331,19 @@
         <span>Bengaluru, India</span>
       </div>
     </div>
-    <form class="contact-form">
+  <form class="contact-form">
       <div class="form-group">
-        <input type="text" placeholder="Your Name" required />
+        <input type="text" placeholder="Your Name" id="name" required />
       </div>
       <div class="form-group">
-        <input type="email" placeholder="Your Email" required />
+        <input type="email" placeholder="Your Email" id="e-mail" required />
       </div>
       <div class="form-group">
-        <textarea placeholder="Your Message" required></textarea>
+        <textarea placeholder="Your Message" id="message" required></textarea>
       </div>
-      <button type="submit" class="btn-primary"  onclick="sendEmail()">Send Message</button>
-    </form>
+      <button type="submit" class="btn-primary"  onclick="sendmail()"   >Send Message</button>
+  </form>
+
   </section>
 
   <!-- FOOTER -->
@@ -353,9 +384,15 @@
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
   <script src="js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script src="js/particles.js"></script>
   <script src="js/app.js"></script>
+  <script type="text/javascript">
+          (function(){
+              emailjs.init({
+                publicKey: "b5W3mxeP36jSyo768",
+              });
+          })();
+        </script>
 
 
 </body>
