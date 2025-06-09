@@ -6,6 +6,7 @@
   <title>Lokesh Patel | Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsivness.css  ">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
@@ -58,6 +59,7 @@
   </section>
 
   <!-- ABOUT SECTION -->
+  <div class="about-wrapper"></div>
   <section id="about" class="about-content">
     <div class="about-image">
       <img src="about-photo.jpg" alt="About Me" />
@@ -67,24 +69,6 @@
       <p>
         I am a 2024 CS graduate and an enthusiastic full-stack developer trained in Python, Django, REST APIs, and data analytics. I specialize in building scalable applications and creating visual, data-driven dashboards. Passionate about problem-solving, cloud deployment, and creating clean code.
       </p>
-      <div class="about-info">
-        <div class="info-item">
-          <span>Age:</span>
-          <p>22</p>
-        </div>
-        <div class="info-item">
-          <span>Location:</span>
-          <p>Bengaluru, India</p>
-        </div>
-        <div class="info-item">
-          <span>Email:</span>
-          <p>lokeshpatel2714@gmail.com</p>
-        </div>
-        <div class="info-item">
-          <span>Phone:</span>
-          <p>+91 87702 86252</p>
-        </div>
-      </div>
       <div class="social-links">
         <a href="https://www.linkedin.com/in/lokesh27patel" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></i></a>
         <a href="https://github.com/Lokesh2728" aria-label="GitHub"><i class="bi bi-github"></i></a>
@@ -95,7 +79,7 @@
       </div>
     </div>
   </section>
-
+</div>
   <!-- SKILLS SECTION -->
   <section id="skills" class="skills-container">
     <div class="skill-category">
@@ -153,7 +137,7 @@
       <div class="card ">
         <img src="images/tracker.png" class="card-img-top" alt="Project 1">
         <div class="card-body">
-          <h5 class="card-title">Expense Tracker</h5>
+          <h5 class="P-card-title">Expense Tracker</h5>
           <p class="card-text"> Developed a full-stack Django web app supporting budgets, visualized expense dashboards using 
             Matplotlib, with robust CRUD and user authentication.</p>
           <div class="project-tech">
@@ -173,7 +157,7 @@
       <div class="card ">
         <img src="images/chat_analysis.png" class="card-img-top" alt="Project 1">
         <div class="card-body">
-          <h5 class="card-title">WhatsApp Chat Analyzer</h5>
+          <h5 class="P-card-title">WhatsApp Chat Analyzer</h5>
           <p class="card-text">
             WhatsApp chat analyzer built using Python, Pandas, and Matplotlib, designed to turn casual conversations into insightful visual stories. 
             Upload any exported chat, and ChatIntel instantly reveals:
@@ -195,7 +179,7 @@
       <div class="card ">
         <img src="images/tracker.png" class="card-img-top" alt="Project 1">
         <div class="card-body">
-          <h5 class="card-title">SmartTask — Your Minimalist Productivity Partner</h5>
+          <h5 class="P-card-title">SmartTask — Your Minimalist Productivity Partner</h5>
           <p class="card-text">
             SmartTask is a clean, responsive to-do list web app built with Python & Django, designed to help users 
             stay organized with ease. It goes beyond just listing tasks — it lets you categorize, prioritize, and mark them as complete with a satisfying tap.
@@ -218,7 +202,7 @@
       <div class="card ">
         <img src="images/tracker.png" class="card-img-top" alt="Project 1">
         <div class="card-body">
-          <h5 class="card-title">SmartTask — Your Minimalist Productivity Partner</h5>
+          <h5 class="P-card-title">Weather Forecast</h5>
           <p class="card-text">
             SmartTask is a clean, responsive to-do list web app built with Python & Django, designed to help users 
             stay organized with ease. It goes beyond just listing tasks — it lets you categorize, prioritize, and mark them as complete with a satisfying tap.
@@ -227,7 +211,7 @@
             <span>HTML5</span>
             <span>Python</span>
             <span>Django</span>
-            <span>SQLite3</span>
+            <span>Rest-Framework</span>
           </div>
           <div class="project-links mt-2 ">
             <a href="#" target="_blank" rel="noopener">Code</a>
@@ -267,9 +251,9 @@
           <div class="timeline-block">
         <div class="timeline-content">
           <div class="journey-card">
-            <h3 class="card-title">Internship at @ProdigyInfoTech</h3>
-            <span class="card-date">June 2024 - Aug 2024</span>
-            <p class="card-desc">Worked on UI/UX design, responsive components, and integrated APIs using React and Tailwind CSS.</p>
+            <h3 class="card-title">Graduated with a B.Tech in Computer Science(AI & ML)</h3>
+            <span class="card-date">Sept 2020 - Jun 2024</span>
+            <p class="card-desc">Earned my B.Tech in Computer Science. Projects, problem-solving, and the start of something big.</p>
           </div>
         </div>
         </div>
@@ -277,9 +261,10 @@
         <div class="timeline-block">
         <div class="timeline-content">
           <div class="journey-card">
-            <h3 class="card-title">Internship at @ProdigyInfoTech</h3>
-            <span class="card-date">June 2024 - Aug 2024</span>
-            <p class="card-desc">Worked on UI/UX design, responsive components, and integrated APIs using React and Tailwind CSS.</p>
+            <h3 class="card-title">Higher Secondary Education</h3>
+            <span class="card-date">Apr 2019 - Jun 2020 </span>
+            <p class="card-desc">Completed HSC with a focus on Physics, Chemistry, and Mathematics.
+               Built analytical thinking and a solid base for engineering education.</p>
           </div>
         </div>
         </div>
@@ -287,9 +272,10 @@
         <div class="timeline-block">
         <div class="timeline-content">
           <div class="journey-card">
-            <h3 class="card-title">Internship at @ProdigyInfoTech</h3>
-            <span class="card-date">June 2024 - Aug 2024</span>
-            <p class="card-desc">Worked on UI/UX design, responsive components, and integrated APIs using React and Tailwind CSS.</p>
+            <h3 class="card-title">Secondary Education</h3>
+            <span class="card-date">Apr 2017 - Jun 2018 </span>
+            <p class="card-desc">Completed 10th  with distinction. Developed strong fundamentals in 
+              mathematics and science, laying the groundwork for future learning.</p>
           </div>
         </div>
         </div>
